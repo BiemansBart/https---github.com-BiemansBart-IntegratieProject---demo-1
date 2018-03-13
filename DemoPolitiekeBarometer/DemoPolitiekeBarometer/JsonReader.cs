@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace DemoPolitiekeBarometer
 {
-    class Program
+    class JsonReader
     {
-        static void Main(string[] args)
-        {
-            
-        }
+
     }
 }
