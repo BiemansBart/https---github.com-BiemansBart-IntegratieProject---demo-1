@@ -11,7 +11,7 @@ namespace DemoPolitiekeBarometer
 
         public static void Main(string[] args)
         {
-              JsonReader reader = new JsonReader();
+            JsonReader reader = new JsonReader();
             reader.readJson();
 
         }
