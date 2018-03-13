@@ -16,6 +16,8 @@ namespace DemoPolitiekeBarometer
         public DateTime Date { get; set; }
         public List<string> Words { get; set; }
         public int[] Sentiment { get; set; }
-        public Arr MyProperty { get; set; }
+        public List<string> Hashtags { get; set; }
+        public List<string> Urls { get; set; }
+        public string politicus { get; set; }
     }
 }

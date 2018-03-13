@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace DemoPolitiekeBarometer
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            
+              JsonReader reader = new JsonReader();
+            reader.readJson();
+
         }
-    }
+}
 }
