@@ -8,27 +8,18 @@ using System.Threading.Tasks;
 
 namespace DemoPolitiekeBarometer {
   public class JsonReader {
-    private List<Tweet> tweets = new List<Tweet>();
-    public void readJson() {
 
+    public List<Tweet> readJson(string path) {
       //heel de json file inlezen als string
       string json;
-      using (StreamReader sr = new StreamReader("../../Resources/TextDump.json")) {
+      using (StreamReader sr = new StreamReader(path)) {
         json = (sr.ReadToEnd());
       }
-
       //een tweetDump Object aanmaken van de json string (bevat een array van tweets)
       TweetDump tweetDump = JsonConvert.DeserializeObject<TweetDump>(json);
       //De array aan de tweet variabele doorgeven
-      tweets = new List<Tweet>(tweetDump.Tweet);
-      //tests cw tab tab
-      foreach (Tweet tweet in tweetDump.Tweet) {
-        Console.WriteLine(tweet.ToString());
-      }
-
-      Console.WriteLine(tweetDump.Tweet.Length);
-
-      Console.ReadLine();
+      List<Tweet> tweets = new List<Tweet>(tweetDump.Tweet);
+      return tweets;
     }
   }
 

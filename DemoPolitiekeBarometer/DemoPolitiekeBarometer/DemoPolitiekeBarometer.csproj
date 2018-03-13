@@ -54,7 +54,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\TextDump.json" />
+    <None Include="Resources\TextDump2.json" />
+    <None Include="Resources\TextDump1.json" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
