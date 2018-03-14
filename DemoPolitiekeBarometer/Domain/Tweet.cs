@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoPolitiekeBarometer {
+namespace Domain {
 
   public class Tweet {
 
@@ -30,10 +30,10 @@ namespace DemoPolitiekeBarometer {
     [JsonProperty("urls")]
     public List<string> Urls { get; set; }
     [JsonProperty("politician")]
-    public string[] politicus { get; set; }
+    public string[] Politicus { get; set; }
 
     public override string ToString() {
-      string naam = String.Format("{0} {1}", politicus[0], politicus[1]);
+      string naam = String.Format("{0} {1}", Politicus[0], Politicus[1]);
       string keywords = Words[0];
       for (int i = 1; i < Words.Count; i++) {
         keywords = String.Format("{0} {1}", keywords, Words[i]);

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Domain;
 
-namespace DemoPolitiekeBarometer {
-  class TweetDump {
+namespace BL {
+  public class TweetDump {
     [JsonProperty("records")]
     public Tweet[] Tweet { get; set; }
   }
