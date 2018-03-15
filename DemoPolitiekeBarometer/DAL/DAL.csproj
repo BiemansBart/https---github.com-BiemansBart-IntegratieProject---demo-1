@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOnderwerpRepository.cs" />
-    <Compile Include="ITweetRepository.cs" />
-    <Compile Include="OnderwerpRepository.cs" />
+    <Compile Include="Onderwerpen\IOnderwerpRepository.cs" />
+    <Compile Include="Tweets\ITweetRepository.cs" />
+    <Compile Include="Onderwerpen\OnderwerpRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TweetFiles.cs" />
-    <Compile Include="TweetRepository.cs" />
+    <Compile Include="Tweets\TweetFiles.cs" />
+    <Compile Include="Tweets\TweetRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TextDump1.json" />

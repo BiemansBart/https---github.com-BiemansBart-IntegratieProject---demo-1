@@ -112,5 +112,7 @@ namespace DAL {
         {
             return onderwerpen.Where(n => n.naam == naam).First();
         }
-    }
+
+   
+  }
 }

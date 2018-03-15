@@ -13,7 +13,6 @@ namespace DAL
         IEnumerable<Onderwerp> ReadOnderwerpen();
         Onderwerp ReadOnderwerp(int id);
         Onderwerp ReadOnderwerpString(string naam);
-        void ChangeTrending(Onderwerp o, bool isTrending);
 
     }
 }

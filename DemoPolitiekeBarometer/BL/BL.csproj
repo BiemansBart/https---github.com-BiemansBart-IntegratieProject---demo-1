@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOnderwerpManager.cs" />
-    <Compile Include="ITweetManager.cs" />
-    <Compile Include="OnderwerpManager.cs" />
+    <Compile Include="Onderwerpen\IOnderwerpManager.cs" />
+    <Compile Include="Tweets\ITweetManager.cs" />
+    <Compile Include="Onderwerpen\OnderwerpManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TweetDump.cs" />
-    <Compile Include="TweetManager.cs" />
+    <Compile Include="Tweets\TweetDump.cs" />
+    <Compile Include="Tweets\TweetManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
