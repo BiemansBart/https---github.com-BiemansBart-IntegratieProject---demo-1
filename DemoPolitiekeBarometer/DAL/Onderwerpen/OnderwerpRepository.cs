@@ -16,6 +16,7 @@ namespace DAL {
       onderwerpen = new List<Onderwerp>();
 
       Persoon persoon1 = new Persoon() {
+        //Trending
         id = 1,
         isTrending = false,
         naam = "Imade Annouri"
@@ -41,6 +42,7 @@ namespace DAL {
         naam = "Dirk De Kort"
       };
       Persoon persoon6 = new Persoon() {
+        //Trending
         id = 6,
         isTrending = false,
         naam = "Annick De Ridder"
@@ -105,7 +107,7 @@ namespace DAL {
     }
 
     public Onderwerp ReadOnderwerp(int id) {
-      return onderwerpen.ElementAt(id - 1);
+      return onderwerpen.Find(x=>x.id==id);
     }
 
         public Onderwerp ReadOnderwerpString(string naam)

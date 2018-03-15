@@ -61,7 +61,7 @@ namespace DAL
 
     public ApplicationUser ReadUser(string id)
     {
-      throw new NotImplementedException();
+      return UserList.Find(x => x.UserId == id);
     }
   }
 }

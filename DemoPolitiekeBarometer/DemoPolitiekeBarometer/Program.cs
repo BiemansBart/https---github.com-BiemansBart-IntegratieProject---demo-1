@@ -62,6 +62,9 @@ namespace DemoPolitiekeBarometer
       foreach (var item in subscriptionManager.GetSubscriptions())
       {
         Console.WriteLine(item.Id);
+        Console.WriteLine(item.ApplicationUser.Voornaam);
+        Console.WriteLine(item.AlertType.ToString());
+        Console.WriteLine(item.Onderwerp.naam);
       }
 
       Console.ReadLine();

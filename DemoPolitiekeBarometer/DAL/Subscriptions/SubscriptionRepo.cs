@@ -11,10 +11,14 @@ namespace DAL
   {
 
     private static List<Subscription> subscriptions;
+    private ApplicationUserRepository userRepository;
+    private OnderwerpRepository onderwerpRepository;
 
     public SubscriptionRepo()
     {
+      userRepository = new ApplicationUserRepository();
       subscriptions = new List<Subscription>();
+      onderwerpRepository = new OnderwerpRepository();
       MaakSubscriptionAan();
     }
 
@@ -23,15 +27,72 @@ namespace DAL
       //User 1 - Geen trending alerts
       Subscription subscription1 = new Subscription
       {
-          Id = "1",
-          AlertType = AlertType.BROWSER,
-          ApplicationUser = new ApplicationUser {
-              UserId = "99",
-              Achternaam = "Vermeulen",
-              Voornaam = "Jos"
-          },
+        Id = "1",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("1"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(2)
       };
       subscriptions.Add(subscription1);
+
+      Subscription subscription2 = new Subscription
+      {
+        Id = "2",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("1"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(3)
+      };
+      subscriptions.Add(subscription2);
+
+
+      Subscription subscription3 = new Subscription
+      {
+        Id = "3",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("1"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(5)
+      };
+      subscriptions.Add(subscription3);
+
+
+      //User 2 - 1 trending 1 niet trending
+      Subscription subscription4 = new Subscription
+      {
+        Id = "4",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("2"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(1)
+      };
+      subscriptions.Add(subscription4);
+
+      Subscription subscription5 = new Subscription
+      {
+        Id = "5",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("2"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(5)
+      };
+      subscriptions.Add(subscription5);
+
+      // User 3 - 2 trending
+      Subscription subscription6 = new Subscription
+      {
+        Id = "6",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("3"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(1)
+      };
+      subscriptions.Add(subscription6);
+
+      Subscription subscription7 = new Subscription
+      {
+        Id = "7",
+        AlertType = AlertType.BROWSER,
+        ApplicationUser = userRepository.ReadUser("3"),
+        Onderwerp = onderwerpRepository.ReadOnderwerp(6)
+      };
+      subscriptions.Add(subscription7);
+
+
     }
 
     public void CreateSubscription(Subscription subscription)
