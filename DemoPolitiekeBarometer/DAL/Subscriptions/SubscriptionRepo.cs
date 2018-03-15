@@ -101,7 +101,7 @@ namespace DAL
 
     public void CreateSubscription(Subscription subscription)
     {
-      throw new NotImplementedException();
+            subscriptions.Add(subscription);
     }
 
     public IEnumerable<Subscription> Readsubscriptions()

@@ -10,5 +10,10 @@ namespace Domain {
     public Onderwerp Onderwerp { get; set; }
     public ApplicationUser ApplicationUser { get; set; }
     public AlertType AlertType {get; set;}
-  }
+
+        public override string ToString()
+        {
+            return String.Format("{0} krijgt een alert over : {1} , want die is trending met {2}. Deze alert krijgt hij/zei via {3}", ApplicationUser.Voornaam, Onderwerp.naam, Onderwerp.TrendingScore,AlertType);
+        }
+    }
 }
