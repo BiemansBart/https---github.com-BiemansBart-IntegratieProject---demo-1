@@ -11,5 +11,6 @@ namespace DAL
   {
     void CreateSubscription(Subscription subscription);
     IEnumerable<Subscription> Readsubscriptions();
+    Subscription Readsubscription(string id);
   }
 }

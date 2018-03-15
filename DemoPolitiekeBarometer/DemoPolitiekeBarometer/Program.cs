@@ -50,27 +50,22 @@ namespace DemoPolitiekeBarometer
 
       // Console.WriteLine(teller);
       // Console.ReadLine();
-      Console.WriteLine("ALLE USERS");
-      foreach (var item in applicationUserManager.GetAllApplicationUsers())
+
+      List<Subscription> subscriptionsVanTrendingOnderwerpen = OnderwerpMgr.BerekenTrending(listTextDump2);
+
+      foreach (var item in OnderwerpMgr.getAllOnderwerpen())
       {
-        Console.WriteLine(item.UserId);
+        Console.WriteLine(item.id + " " + " " + item.naam + item.isTrending);
       }
-
-      Console.ReadLine();
-
+     
       Console.WriteLine("ALLE SUBSCRIPTIONS");
-      foreach (var item in subscriptionManager.GetSubscriptions())
+      foreach (var item in subscriptionsVanTrendingOnderwerpen)
       {
-        Console.WriteLine(item.Id);
-        Console.WriteLine(item.ApplicationUser.Voornaam);
-        Console.WriteLine(item.AlertType.ToString());
-        Console.WriteLine(item.Onderwerp.naam);
+        Console.WriteLine("In de foreach");
+        Console.WriteLine(item.Onderwerp.isTrending);
       }
-
       Console.ReadLine();
 
-      OnderwerpMgr.BerekenTrending(listTextDump2);
-      Console.ReadLine();
     }
   }
 }

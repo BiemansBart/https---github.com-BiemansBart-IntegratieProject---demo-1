@@ -17,9 +17,13 @@ namespace DAL
     public SubscriptionRepo()
     {
       userRepository = new ApplicationUserRepository();
-      subscriptions = new List<Subscription>();
       onderwerpRepository = new OnderwerpRepository();
-      MaakSubscriptionAan();
+      if (subscriptions == null)
+      {
+        subscriptions = new List<Subscription>();
+
+        MaakSubscriptionAan();
+      }
     }
 
     private void MaakSubscriptionAan()
@@ -105,7 +109,9 @@ namespace DAL
       return subscriptions;
     }
 
-
-
+    public Subscription Readsubscription(string id)
+    {
+      return subscriptions.Find(x => x.Id == id);
+    }
   }
 }

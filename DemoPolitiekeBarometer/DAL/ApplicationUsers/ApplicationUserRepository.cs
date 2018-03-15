@@ -13,8 +13,10 @@ namespace DAL
 
     public ApplicationUserRepository()
     {
-      UserList = new List<ApplicationUser>();
-      MaakApplicationUsersAan();
+      if (UserList == null) {
+        UserList = new List<ApplicationUser>();
+        MaakApplicationUsersAan();
+      }
     }
 
     private void MaakApplicationUsersAan()
