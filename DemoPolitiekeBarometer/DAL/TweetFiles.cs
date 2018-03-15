@@ -10,7 +10,7 @@ namespace DAL {
 
     //Eerste keer dat getDump opgeroepen wordt krijg je TextDump1.json terug
     //Tweede keer krijg je TextDump2.json
-    //alsof wij 2 keer de meest recente data uit textgain krijgen
+    //alsof wij 2 keer de meest recente data uit textgain halen
     static int teller = 0;
     public string getDump() {
       string path;

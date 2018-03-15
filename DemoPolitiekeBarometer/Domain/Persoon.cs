@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain {
-  class Persoon : Onderwerp{
+  public class Persoon : Onderwerp{
     
   }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain {
   public abstract class Onderwerp {
-    public string id { get; set; }
+    public int id { get; set; }
     public string naam { get; set; }
-    public bool isTreding { get; set; }
+    public bool isTrending { get; set; }
   }
 }
