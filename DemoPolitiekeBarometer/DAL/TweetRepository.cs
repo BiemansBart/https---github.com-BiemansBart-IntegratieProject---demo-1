@@ -8,7 +8,7 @@ using Domain;
 namespace DAL {
   public class TweetRepository : ITweetRepository {
 
-    private List<Tweet> tweets;
+    private static List<Tweet> tweets;
 
     public TweetRepository() {
       tweets = new List<Tweet>();

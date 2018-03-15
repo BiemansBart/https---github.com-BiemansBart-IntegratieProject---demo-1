@@ -11,7 +11,7 @@ namespace DAL {
     public OnderwerpRepository() {
       seed();
     }
-
+    //TODO : Automatisch uit JSON halen.
     private void seed() {
       onderwerpen = new List<Onderwerp>();
 
