@@ -77,7 +77,7 @@ namespace BL
             int teller;
             int noemer;
             // Hoe hoger het arbitrair getal, hoe minder politiekers er trending zijn.
-            int arbitrairGetal = 15;
+            int arbitrairGetal = 10;
             double trendingScore;
             foreach (var key in onderwerpenMapNieuwBinnengekomenData.Keys) 
             {
@@ -88,6 +88,7 @@ namespace BL
                 Console.WriteLine(key + " " + trendingScore);
                 if(trendingScore >= 0.20){
                     Console.WriteLine(key + " is trending");
+                    Console.WriteLine(repo.ReadOnderwerpString(key).naam + " " + repo.ReadOnderwerpString(key).isTrending);
                 }
             }
         }

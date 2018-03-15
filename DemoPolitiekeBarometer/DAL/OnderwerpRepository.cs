@@ -107,5 +107,10 @@ namespace DAL {
     public Onderwerp ReadOnderwerp(int id) {
       return onderwerpen.ElementAt(id - 1);
     }
-  }
+
+        public Onderwerp ReadOnderwerpString(string naam)
+        {
+            return onderwerpen.Where(n => n.naam == naam).First();
+        }
+    }
 }
