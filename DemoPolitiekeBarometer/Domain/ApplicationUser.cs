@@ -9,8 +9,5 @@ namespace Domain {
     public string Voornaam { get; set; }
     public string Achternaam { get; set; }
     public string UserId { get; set; }
-    public List<Onderwerp> GevolgdeOnderwerpen { get; set; }
-    
-
   }
 }

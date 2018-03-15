@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUsers\ApplicationUserManager.cs" />
+    <Compile Include="ApplicationUsers\IApplicationUserManager.cs" />
     <Compile Include="Onderwerpen\IOnderwerpManager.cs" />
+    <Compile Include="Subscriptions\ISubscriptionManager.cs" />
+    <Compile Include="Subscriptions\SubscriptionManager.cs" />
     <Compile Include="Tweets\ITweetManager.cs" />
     <Compile Include="Onderwerpen\OnderwerpManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

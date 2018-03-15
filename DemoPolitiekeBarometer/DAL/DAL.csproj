@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUsers\ApplicationUserRepository.cs" />
+    <Compile Include="ApplicationUsers\IApplicationUserRepository.cs" />
     <Compile Include="Onderwerpen\IOnderwerpRepository.cs" />
+    <Compile Include="Subscriptions\ISubscriptionRepo.cs" />
+    <Compile Include="Subscriptions\SubscriptionRepo.cs" />
     <Compile Include="Tweets\ITweetRepository.cs" />
     <Compile Include="Onderwerpen\OnderwerpRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
