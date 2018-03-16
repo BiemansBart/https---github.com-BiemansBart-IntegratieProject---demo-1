@@ -26,7 +26,7 @@ namespace BL
             repo.CreateOnderwerp(onderwerp);
         }
 
-        public List<Alert> BerekenTrending(List<Tweet> NieuweTweets)
+        public List<Alert> GenereerAlerts(List<Tweet> NieuweTweets)
         {
             List<Tweet> OudeTweets = Tweetmgr.GetTweets().ToList();
             Dictionary<string, int> onderwerpenMapNieuwBinnengekomenData = new Dictionary<string, int>();
@@ -41,7 +41,6 @@ namespace BL
             // Hier wordt gekeken hoeveel keer de politieker voorkomt wordt in de nieuwe data
             foreach (var Politicus in NieuweTweets)
             {
-                Politicus.ZetPoliticusNaamOm();
                 if (onderwerpenMapNieuwBinnengekomenData.ContainsKey(Politicus.Naam))
                 {
                     // Hier tellen 1 bij de value per keer dat de politieker voorkomt in de nieuwe data. Zo weten het totaal aantal keer dat en politieke voorkomt in de nieuwe data.
@@ -59,11 +58,11 @@ namespace BL
 
             }
 
-            return GetSubscriptionsVoorTrendingOnderwerpen(onderwerpenMapOudeData, onderwerpenMapNieuwBinnengekomenData);
+            return BerekenTrending(onderwerpenMapOudeData, onderwerpenMapNieuwBinnengekomenData);
         }
 
         // Gaat alle subscriptions ophalen voor de onderwerpen die op dit moment trending zijn
-        private List<Alert> GetSubscriptionsVoorTrendingOnderwerpen(Dictionary<string, int> onderwerpenMapOudeData, Dictionary<string, int> onderwerpenMapNieuwBinnengekomenData)
+        private List<Alert> BerekenTrending(Dictionary<string, int> onderwerpenMapOudeData, Dictionary<string, int> onderwerpenMapNieuwBinnengekomenData)
         {
             int teller;
             int noemer;
@@ -81,7 +80,7 @@ namespace BL
                 trendingScore = VoerTrendingBerekeningUit(teller, noemer);
                 repo.ReadOnderwerpString(key).TrendingScore = trendingScore;
 
-                if (trendingScore >= 0.20)
+                if (trendingScore >= 0.13)
                 {
                     repo.ReadOnderwerpString(key).isTrending = true;
                     foreach (var item in subscriptionRepo.ReadSubscriptionsMetNaamOnderwerp(key))
@@ -138,6 +137,7 @@ namespace BL
         {
             return repo.ReadOnderwerp(id);
         }
+
         private double VoerTrendingBerekeningUit(double tellerScore, double noemerScore)
         {
             double ArbitrairGetal = 10;

@@ -12,6 +12,6 @@ namespace BL
         void AddOnderwerp(Onderwerp onderwerp);
         Onderwerp getOnderwerp(int id);
         IEnumerable<Onderwerp> getAllOnderwerpen();
-        List<Alert> BerekenTrending(List<Tweet> lijst);
+        List<Alert> GenereerAlerts(List<Tweet> lijst);
     }
 }
