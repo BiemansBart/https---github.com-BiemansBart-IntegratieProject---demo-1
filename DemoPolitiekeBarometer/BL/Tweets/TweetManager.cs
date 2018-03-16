@@ -39,6 +39,7 @@ namespace BL {
       TweetDump tweetDump = JsonConvert.DeserializeObject<TweetDump>(json);
       //De array aan de tweet variabele doorgeven
       List<Tweet> tweets = new List<Tweet>(tweetDump.Tweet);
+      AddAllTweets(tweets);
       return tweets;
     }
 
