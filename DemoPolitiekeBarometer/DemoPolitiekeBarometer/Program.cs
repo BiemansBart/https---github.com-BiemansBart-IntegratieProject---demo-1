@@ -20,12 +20,10 @@ namespace DemoPolitiekeBarometer
     {
       //Laatste textDump1 ophalen
       List<Tweet> listTextDump1 = mgr.GetLatestTweetDump();
-      //tweets toevoegen aan databank
-      mgr.AddAllTweets(listTextDump1);
       //TextDump2 in databank zetten
       List<Tweet> listTextDump2 = mgr.GetLatestTweetDump();
 
-      List<Alert> LijstMetALerts = OnderwerpMgr.BerekenTrending(listTextDump2);
+      List<Alert> LijstMetALerts = OnderwerpMgr.GenereerAlerts(listTextDump2);
             foreach (var item in LijstMetALerts)
             {
                 Console.WriteLine(item);

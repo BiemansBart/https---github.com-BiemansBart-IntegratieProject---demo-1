@@ -18,7 +18,7 @@ namespace BL {
     }
 
     public void AddTweet(Tweet tweet) {
-     repo.CreateTweet(tweet);
+      repo.CreateTweet(tweet);
     }
 
     public void AddAllTweets(List<Tweet> tweets) {
@@ -39,10 +39,10 @@ namespace BL {
       TweetDump tweetDump = JsonConvert.DeserializeObject<TweetDump>(json);
       //De array aan de tweet variabele doorgeven
       List<Tweet> tweets = new List<Tweet>(tweetDump.Tweet);
-            foreach (var item in tweets)
-            {
-                item.ZetPoliticusNaamOm();
-            }
+      foreach (var item in tweets) {
+        item.ZetPoliticusNaamOm();
+      }
+      AddAllTweets(tweets);
       return tweets;
     }
 
