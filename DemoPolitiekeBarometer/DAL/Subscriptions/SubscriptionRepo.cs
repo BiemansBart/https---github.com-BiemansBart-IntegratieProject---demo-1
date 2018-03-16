@@ -113,5 +113,10 @@ namespace DAL
     {
       return subscriptions.Find(x => x.Id == id);
     }
-  }
+
+        public List<Subscription> ReadSubscriptionsMetNaamOnderwerp(string id)
+        {
+            return subscriptions.Where(x => x.Onderwerp.naam == id).ToList();
+        }
+    }
 }

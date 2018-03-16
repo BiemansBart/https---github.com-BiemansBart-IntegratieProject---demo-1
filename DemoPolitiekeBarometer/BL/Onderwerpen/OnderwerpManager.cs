@@ -49,9 +49,9 @@ namespace BL
                 }
 
             }
+            //TODO : Niet in alle tweets gaan zien, maar zoeken in de tweets van nu tot een week geleden.
             foreach (var Politicus in Tweetmgr.GetTweets())
             {
-                Politicus.ZetPoliticusNaamOm();
                 if (onderwerpenMapOudeData.ContainsKey(Politicus.Naam))
                 {
                     onderwerpenMapOudeData[Politicus.Naam]++;
@@ -68,7 +68,7 @@ namespace BL
             int teller;
             int noemer;
             // Hoe hoger het arbitrair getal, hoe minder politiekers er trending zijn.
-            int arbitrairGetal = 10;
+
             double trendingScore = 0;
             List<Subscription> subscriptionsTrendingOnderwerpen = new List<Subscription>();
 
@@ -78,15 +78,21 @@ namespace BL
                 teller = onderwerpenMapNieuwBinnengekomenData[key];
                 noemer = onderwerpenMapOudeData[key];
 
-                trendingScore = (double)teller / (double)(noemer + arbitrairGetal);            
+                trendingScore = VoerTrendingBerekeningUit(teller, noemer);
+                repo.ReadOnderwerpString(key).TrendingScore = trendingScore;
+
                 if (trendingScore >= 0.20)
                 {
                     repo.ReadOnderwerpString(key).isTrending = true;
-                    repo.ReadOnderwerpString(key).TrendingScore = trendingScore;
-                    subscriptionRepo.Readsubscriptions().ToList().Find(x => x.Onderwerp.naam == key).Onderwerp.TrendingScore = trendingScore;
-
+                    foreach (var item in subscriptionRepo.ReadSubscriptionsMetNaamOnderwerp(key))
+                    {
+                        item.Onderwerp.TrendingScore = trendingScore;
+                        item.Onderwerp.isTrending = true;
+                    }
                 }
+
             }
+
 
             List<Onderwerp> trendingOnderwerpen = repo.ReadOnderwerpen().Where(x => x.isTrending == true).ToList();
             // Gaat per Trending onderwerp alle subscriptions halen, en daar in die repo de isTrending ook op true zetten, zodat de alerts geactiveerd worden.
@@ -107,14 +113,14 @@ namespace BL
             // hierin worden de alerts aangemaakt die terug worden gestuurd
 
             List<Alert> AlertList = new List<Alert>();
-           
+
             foreach (var item in subscriptionsTrendingOnderwerpen)
             {
                 Alert alert = new Alert()
                 {
                     Subscription = item,
                     text = item.Onderwerp.ToString()
-                    
+
                 };
                 AlertList.Add(alert);
             }
@@ -131,6 +137,11 @@ namespace BL
         public Onderwerp getOnderwerp(int id)
         {
             return repo.ReadOnderwerp(id);
+        }
+        private double VoerTrendingBerekeningUit(double tellerScore, double noemerScore)
+        {
+            double ArbitrairGetal = 10;
+            return tellerScore / (noemerScore + ArbitrairGetal);
         }
     }
 }
